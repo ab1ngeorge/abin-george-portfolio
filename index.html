@@ -1,160 +1,439 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abin George | AI & Backend Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Abin George — Software Developer & AI Engineer</title>
+    <meta name="description"
+        content="Abin George — Computer Engineering graduate building intelligent systems with Python, NLP, and Machine Learning. Explore projects, skills, and experience.">
+    <meta name="keywords" content="Abin George, Software Developer, AI, Machine Learning, Python, Portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Dark/Light Mode Toggle -->
-    <div class="theme-toggle">
-        <i class="fas fa-moon"></i>
-        <div class="toggle-switch"></div>
-        <i class="fas fa-sun"></i>
-    </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="profile">
-                <img src="assets/images/profile.jpg" alt="Abin George">
-                <h1>Abin George</h1>
-                <p>AI & Backend Developer | Flutter Enthusiast</p>
-                <div class="social-links">
-                    <a href="mailto:abin.george.work@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/ab1ngeorge" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/abingeorge" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://unit.link/ab1n" target="_blank"><i class="fas fa-globe"></i></a>
-                </div>
-                <a href="assets/resume.pdf" class="btn" download>Download Resume <i class="fas fa-download"></i></a>
+<body>
+    <!-- Animated Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Cursor glow follower -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <nav class="container nav-container">
+            <a href="#" class="logo" aria-label="Home">
+                <span class="logo-bracket">&lt;</span>AG<span class="logo-bracket"> /&gt;</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#about" data-text="About">About</a>
+                <a href="#skills" data-text="Skills">Skills</a>
+                <a href="#projects" data-text="Projects">Projects</a>
+                <a href="#experience" data-text="Experience">Experience</a>
+                <a href="#contact" data-text="Contact">Contact</a>
             </div>
-        </div>
+            <div class="nav-right">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+                <a href="resume.pdf" class="nav-resume-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-download"></i> Resume
+                </a>
+                <button class="mobile-toggle icon-btn" id="mobile-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <!-- About Me -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Computer Engineering student specializing in <strong>AI, NLP, and Backend Development</strong>. Passionate about building intelligent systems and user-friendly applications. Experienced in <strong>Python, Flutter, Django, and Machine Learning</strong>.</p>
-            <div class="skills">
-                <h3>My Skills</h3>
-                <div class="skill-tags">
-                    <span>Python</span>
-                    <span>Flutter</span>
-                    <span>Django</span>
-                    <span>NLP</span>
-                    <span>Machine Learning</span>
-                    <span>REST APIs</span>
-                    <span>Git</span>
-                    <span>MySQL</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="assets/images/project1.png" alt="CampusFlow-AI">
-                    <h3>CampusFlow-AI</h3>
-                    <p>AI-powered campus assistant built with Flutter for real-time navigation and queries.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <section id="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge animate-in">
+                        <i class="fa-solid fa-circle dot-pulse"></i> Open to Opportunities
+                    </div>
+                    <h1 class="animate-in delay-1">
+                        Hi, I'm <span class="gradient-text">Abin George</span>
+                    </h1>
+                    <h2 class="hero-subtitle animate-in delay-2">
+                        I craft <span id="typed-text" class="typed-highlight"></span><span class="typed-cursor">|</span>
+                    </h2>
+                    <p class="hero-desc animate-in delay-3">
+                        Computer Engineering graduate focused on backend development and AI-powered applications. I
+                        build voice-based systems, intelligent assistants, and real-time interaction platforms.
+                    </p>
+                    <div class="hero-cta animate-in delay-4">
+                        <a href="#projects" class="btn-glow">
+                            <span>Explore My Work</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn-outline">
+                            <span>Let's Connect</span>
+                        </a>
+                    </div>
+                    <div class="hero-socials animate-in delay-5">
+                        <a href="https://github.com/ab1ngeorge" target="_blank" aria-label="GitHub"
+                            class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://unit.link/ab1n" target="_blank" aria-label="LinkedIn" class="social-icon"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:abin.george.work@gmail.com" aria-label="Email" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
+                <div class="hero-visual animate-in delay-3">
+                    <div class="hero-card glass-card">
+                        <div class="code-window">
+                            <div class="code-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <pre class="code-block"><code><span class="code-keyword">class</span> <span class="code-class">Developer</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self):
+        self.name = <span class="code-string">"Abin George"</span>
+        self.role = <span class="code-string">"AI Engineer"</span>
+        self.skills = [
+            <span class="code-string">"Python"</span>, <span class="code-string">"ML"</span>,
+            <span class="code-string">"NLP"</span>, <span class="code-string">"Flutter"</span>
+        ]
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="assets/images/project2.png" alt="Malayalam Voice Assistant">
-                    <h3>Malayalam Voice Assistant</h3>
-                    <p>Bilingual (Malayalam + English) voice assistant for college queries using NLP.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="assets/images/project3.png" alt="Diabetes Prediction ML Model">
-                    <h3>Diabetes Prediction ML Model</h3>
-                    <p>Early diabetes detection using Extra Trees Classifier (IBM Watson Studio).</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <img src="assets/images/project4.png" alt="MediBridge">
-                    <h3>MediBridge</h3>
-                    <p>Healthcare app improving accessibility to medical services (Flutter).</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <span class="code-keyword">def</span> <span class="code-func">build</span>(self):
+        <span class="code-keyword">return</span> <span class="code-string">"Amazing things 🚀"</span></code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </section>
 
-    <!-- Achievements -->
-    <section id="achievements">
-        <div class="container">
-            <h2>Achievements</h2>
-            <div class="achievement-grid">
-                <div class="achievement-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>1st Place - CIPHERTHON 2.0</h3>
-                    <p>6-hour inter-college hackathon | CIPHER 2026</p>
+        <!-- ==================== ABOUT ==================== -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-user"></i> About Me</span>
+                    <h2 class="section-title">Know Who I Am</h2>
                 </div>
-                <div class="achievement-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>1st Place - MediHack Hackathon</h3>
-                    <p>Teranis'24, IEEE CS SBC LBSCEK</p>
-                </div>
-                <div class="achievement-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>3rd Place - TeraForge Hackathon</h3>
-                    <p>24-hour hackathon | Teranis 2K26</p>
+                <div class="about-grid">
+                    <div class="about-text glass-card">
+                        <div class="about-image-wrapper animate-in delay-1">
+                            <img src="assets/images/profile-landscape2.png" alt="Abin George" class="about-profile-img">
+                            <div class="image-text-overlay">
+                                <span class="typing-name">Abin George</span><span class="typing-cursor">_</span>
+                            </div>
+                        </div>
+                        <p>I'm a <strong>Computer Engineering</strong> graduate passionate about building intelligent,
+                            user-centric systems. My focus areas are <strong>backend development</strong> and
+                            <strong>AI-powered applications</strong>—from voice assistants to ML prediction models.</p>
+                        <p>I have interned at <strong>IIT Bombay</strong> and <strong>Soften Technologies</strong>, and
+                            I've won multiple national-level hackathons. I love taking complex problems and turning them
+                            into clean, scalable solutions.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Projects Built</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="2">0</span>
+                                <span class="stat-label">Internships</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="3">0</span>
+                                <span class="stat-label">Hackathon Wins</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-cards">
+                        <div class="info-card glass-card">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <h4>Education</h4>
+                            <p><strong>B.Tech</strong> – Computer Engineering<br>LBS College of Engineering,
+                                Kasaragod<br><em>2023 – Present</em></p>
+                            <p class="mt"><strong>Diploma</strong> – Computer Engineering<br>Govt. Polytechnic College,
+                                Mananthavady<br><em>2020 – 2023</em></p>
+                        </div>
+                        <div class="info-card glass-card">
+                            <i class="fa-solid fa-trophy"></i>
+                            <h4>Achievements</h4>
+                            <ul>
+                                <li>🥇 1st – CIPHERTHON 2.0 (CIPHER 2026)</li>
+                                <li>🥇 1st – MediHack (Teranis'24, IEEE)</li>
+                                <li>🥉 3rd – TeraForge (Teranis 2K26)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-            </form>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> abin.george.work@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +91 XXX XXX XXXX</p>
+        <!-- ==================== SKILLS ==================== -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Skills</span>
+                    <h2 class="section-title">My Tech Stack</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card" data-tilt>
+                        <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Programming</h3>
+                        <div class="chip-group">
+                            <span class="chip">Python</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">C++</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">C</span>
+                            <span class="chip">Dart</span>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card" data-tilt>
+                        <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>AI & Machine Learning</h3>
+                        <div class="chip-group">
+                            <span class="chip">NLP</span>
+                            <span class="chip">Speech Recognition</span>
+                            <span class="chip">Intent Classification</span>
+                            <span class="chip">Computer Vision</span>
+                            <span class="chip">ML Models</span>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card" data-tilt>
+                        <div class="skill-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3>Frameworks & Tools</h3>
+                        <div class="chip-group">
+                            <span class="chip">Django</span>
+                            <span class="chip">Flutter</span>
+                            <span class="chip">OpenCV</span>
+                            <span class="chip">MediaPipe</span>
+                            <span class="chip">Git & GitHub</span>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card" data-tilt>
+                        <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3>Databases & Concepts</h3>
+                        <div class="chip-group">
+                            <span class="chip">MySQL</span>
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">REST APIs</span>
+                            <span class="chip">OOP</span>
+                            <span class="chip">Data Structures</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- ==================== PROJECTS ==================== -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-rocket"></i> Projects</span>
+                    <h2 class="section-title">Things I've Built</h2>
+                </div>
+                <div class="projects-masonry">
+                    <!-- Project 1 - Featured -->
+                    <div class="project-card featured glass-card">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>CampusFlow-AI</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/ab1ngeorge" target="_blank" class="project-link"
+                                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <p class="project-type">Mobile App</p>
+                            <p>AI-enabled campus assistance application built with Flutter for user interaction and
+                                navigation within campus systems. Real-time access to information with intelligent
+                                response handling.</p>
+                            <div class="project-tags">
+                                <span>Flutter</span><span>Dart</span><span>AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Malayalam Voice Assistant</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/ab1ngeorge" target="_blank" class="project-link"
+                                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <p class="project-type">College System</p>
+                            <p>Multilingual (Malayalam + English) voice assistant with NLP-based intent classification
+                                and structured FAQ system for accurate college query handling.</p>
+                            <div class="project-tags">
+                                <span>Python</span><span>NLP</span><span>SpeechRecognition</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Virtual Assistant</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/ab1ngeorge" target="_blank" class="project-link"
+                                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <p class="project-type">NLP System</p>
+                            <p>Intent classification model using supervised learning with speech-based input for
+                                interactive, real-time conversational responses.</p>
+                            <div class="project-tags">
+                                <span>Python</span><span>Machine Learning</span><span>NLP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card glass-card">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Diabetes Prediction Model</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/ab1ngeorge" target="_blank" class="project-link"
+                                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <p class="project-type">ML Model</p>
+                            <p>Early diabetes detection using Extra Trees Classifier. Non-invasive prediction pipeline
+                                built on IBM Cloud and Watson Studio.</p>
+                            <div class="project-tags">
+                                <span>Python</span><span>Machine Learning</span><span>IBM Cloud</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card glass-card">
+                        <div class="project-number">05</div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>MediBridge</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/ab1ngeorge" target="_blank" class="project-link"
+                                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <p class="project-type">Healthcare App</p>
+                            <p>Healthcare-focused application improving accessibility of medical services through
+                                intuitive user interaction and clean application architecture.</p>
+                            <div class="project-tags">
+                                <span>Flutter</span><span>Dart</span><span>Healthcare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EXPERIENCE ==================== -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Experience</span>
+                    <h2 class="section-title">Where I've Worked</h2>
+                </div>
+                <div class="exp-timeline">
+                    <div class="exp-item glass-card">
+                        <div class="exp-dot"></div>
+                        <div class="exp-date">July 2024</div>
+                        <h3>Intern — AI & Python</h3>
+                        <h4>PACELAB & E-Cell, IIT Bombay</h4>
+                        <ul>
+                            <li>Implemented machine learning models and NLP-based tasks</li>
+                            <li>Worked on data preprocessing and model training pipelines</li>
+                        </ul>
+                    </div>
+                    <div class="exp-item glass-card">
+                        <div class="exp-dot"></div>
+                        <div class="exp-date">June 2024</div>
+                        <h3>Flutter Developer Intern</h3>
+                        <h4>Soften Technologies, Kochi</h4>
+                        <ul>
+                            <li>Developed cross-platform mobile applications using Flutter and Dart</li>
+                            <li>Improved UI responsiveness and integrated backend APIs</li>
+                            <li>Optimized user experience and application performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="certs-section">
+                    <h3 class="certs-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+                    <div class="certs-scroll">
+                        <div class="cert-chip"><i class="fa-solid fa-cloud"></i> NPTEL: Cloud Computing</div>
+                        <div class="cert-chip"><i class="fa-solid fa-robot"></i> IBM: AI Agent Architect</div>
+                        <div class="cert-chip"><i class="fa-solid fa-chart-line"></i> Infosys: AI & Data Science</div>
+                        <div class="cert-chip"><i class="fa-brands fa-python"></i> DevTown: Python</div>
+                        <div class="cert-chip"><i class="fa-brands fa-git-alt"></i> LetsUpgrade: Git & GitHub</div>
+                        <div class="cert-chip"><i class="fa-solid fa-diagram-project"></i> LinkedIn: Project Mgmt</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Contact</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                </div>
+                <div class="contact-box glass-card">
+                    <p class="contact-desc">I'm currently looking for new opportunities in software development and AI
+                        engineering. Whether you have a role, a project idea, or just want to say hello — my inbox is
+                        always open!</p>
+                    <div class="contact-grid">
+                        <a href="mailto:abin.george.work@gmail.com" class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <span>abin.george.work@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/ab1ngeorge" target="_blank" class="contact-item">
+                            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                            <span>github.com/ab1ngeorge</span>
+                        </a>
+                        <a href="https://unit.link/ab1n" target="_blank" class="contact-item">
+                            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <span>unit.link/ab1n</span>
+                        </a>
+                    </div>
+                    <a href="mailto:abin.george.work@gmail.com" class="btn-glow contact-cta">
+                        <span>Say Hello</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Abin George. All rights reserved.</p>
+        <div class="container footer-content">
+            <p>Designed & Built by <span class="gradient-text">Abin George</span></p>
+            <div class="footer-links">
+                <a href="https://github.com/ab1ngeorge" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://unit.link/ab1n" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:abin.george.work@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
