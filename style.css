@@ -1222,6 +1222,14 @@ footer {
 }
 
 @media(max-width:768px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -1243,10 +1251,22 @@ footer {
 
     .mobile-toggle {
         display: flex;
+        padding: 0.5rem;
     }
 
     .nav-resume-btn {
         display: none;
+    }
+
+    .image-text-overlay {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .about-stats {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
     }
 
     .skills-grid {
@@ -1255,6 +1275,18 @@ footer {
 
     .projects-masonry {
         grid-template-columns: 1fr;
+    }
+
+    .project-card, .skill-card, .info-card {
+        padding: 1.5rem;
+    }
+
+    .exp-item {
+        padding: 1.2rem;
+    }
+
+    .contact-box {
+        padding: 1.5rem;
     }
 
     .footer-content {
